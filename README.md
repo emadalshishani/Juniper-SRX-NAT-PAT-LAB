@@ -6,6 +6,12 @@ This lab demonstrates interface-based Source NAT with Port Address Translation (
 
 The HQ SRX translates traffic originating from three internal IPv4 subnets to the IP address configured on its egress interface, `ge-0/0/1.0`. The source port is also translated when required, allowing multiple internal sessions to share the interface address.
 
+## Topology
+
+The diagram below shows the lab topology, including the HQ and Branch environments, upstream ISP routers, and the route-based IPsec connection.
+
+![Source NAT/PAT Lab Topology](docs/images/Source%20NAT-PAT%20Topology.svg)
+
 ## Lab Scope
 
 - Configure a Source NAT rule set on the HQ SRX.
@@ -100,7 +106,9 @@ The change in both source IP address and source port demonstrates interface-base
 
 ### 3. Browser test
 
-A browser test was also performed from the end host. A browser screenshot will be added to the repository when available.
+The Linux end host was also used to browse the HPE website successfully, providing an application-level connectivity check.
+
+![Linux end host browsing the Internet](docs/images/linux%20device%20browsing%20internet.svg)
 
 ## Repository Structure
 
@@ -109,6 +117,10 @@ Juniper-SRX-NAT-PAT-LAB/
 ├── README.md
 ├── configurations/
 │   └── HQ-SRX-source-nat.conf
+├── docs/
+│   └── images/
+│       ├── Source NAT-PAT Topology.svg
+│       └── linux device browsing internet.svg
 └── verification/
     └── verification.md
 ```
@@ -116,5 +128,4 @@ Juniper-SRX-NAT-PAT-LAB/
 ## Notes
 
 - This repository documents the configuration and test evidence provided for this lab.
-- The topology diagram and browser screenshot can be added when uploaded.
 - The Reverse DNS lookup output is intentionally excluded because it does not verify Source NAT/PAT operation.
